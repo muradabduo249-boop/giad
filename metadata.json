@@ -1,0 +1,6 @@
+{
+  "name": "مجموعة جياد للصناعات الهندسية | GIAD Group",
+  "description": "البوابة الرسمية لمجموعة جياد للصناعات الهندسية — رائدة الصناعات الثقيلة، السيارات، المعدات الزراعية، الكابلات وتشكيل المعادن منذ عام 1993.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}

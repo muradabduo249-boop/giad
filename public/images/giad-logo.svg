@@ -1,0 +1,35 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 500 320" width="100%" height="100%" fill="none">
+  <!-- Transparent Background (as requested) -->
+  
+  <!-- Outer Ellipse Ring (Giad Corporate Navy) -->
+  <ellipse 
+    cx="250" 
+    cy="145" 
+    rx="148" 
+    ry="86" 
+    stroke="#001B52" 
+    stroke-width="19" 
+    fill="none" 
+  />
+
+  <!-- Stylized Arabic Letter "ج" (Geem / Giad Swoosh) -->
+  <path 
+    d="M 160 102 
+       C 205 110, 290 110, 348 102 
+       C 315 118, 265 132, 236 135 
+       C 205 155, 165 190, 122 226
+       C 142 208, 172 182, 196 160 
+       C 214 144, 226 138, 228 132
+       C 200 128, 175 118, 160 102 Z" 
+    fill="#001B52" 
+  />
+
+  <!-- Vibrant Cyan Core Oval (The Dot of "ج" / Innovation Planet) -->
+  <ellipse 
+    cx="300" 
+    cy="150" 
+    rx="62" 
+    ry="43" 
+    fill="#00ADEF" 
+  />
+</svg>
