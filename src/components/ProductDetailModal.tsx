@@ -92,6 +92,7 @@ export const ProductDetailModal: React.FC<ProductDetailModalProps> = ({
           <img
             src={product.image}
             alt={product.nameAr}
+            referrerPolicy="no-referrer"
             className="w-full h-full object-cover object-center"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F36]/85 via-[#0A1F36]/20 to-transparent" />

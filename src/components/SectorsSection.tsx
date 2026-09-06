@@ -53,6 +53,7 @@ export const SectorsSection: React.FC<SectorsSectionProps> = ({ onSelectSector }
                   <img
                     src={featuredSector.image}
                     alt={featuredSector.titleAr}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F36]/90 via-[#0A1F36]/40 to-transparent" />
@@ -141,6 +142,7 @@ export const SectorsSection: React.FC<SectorsSectionProps> = ({ onSelectSector }
                     <img
                       src={sector.image}
                       alt={sector.titleAr}
+                      referrerPolicy="no-referrer"
                       className="w-12 h-12 sm:w-14 sm:h-14 rounded-xl object-cover shrink-0 border border-slate-200"
                     />
                     <div>

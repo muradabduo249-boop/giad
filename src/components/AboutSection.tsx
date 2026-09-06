@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'motion/react';
 import { CheckCircle2, Factory, History, Globe2, Compass, ShieldCheck, Award } from 'lucide-react';
 import { TIMELINE, GIAD_INFO } from '../data/giadData';
+import giadCityComplexImage from '../assets/images/giad_city_complex_1788691454953.jpg';
 
 export const AboutSection: React.FC = () => {
   const [activeTab, setActiveTab] = useState<'overview' | 'timeline'>('overview');
@@ -71,9 +72,10 @@ export const AboutSection: React.FC = () => {
               >
                 <div className="relative rounded-3xl overflow-hidden shadow-2xl border border-slate-200 bg-[#F8FAFC]">
                   <img
-                    src="https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80"
+                    src={giadCityComplexImage}
                     alt="مجمع مدينة جياد الصناعية وورش التصنيع الثقيل"
                     className="w-full h-80 sm:h-[420px] md:h-[500px] object-cover"
+                    referrerPolicy="no-referrer"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F36]/80 via-transparent to-transparent" />
 

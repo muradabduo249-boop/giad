@@ -2,6 +2,7 @@ import React from 'react';
 import { motion } from 'motion/react';
 import { ArrowLeft, ChevronDown, Layers, Award, ShieldCheck, Factory, PhoneCall } from 'lucide-react';
 import { GIAD_INFO } from '../data/giadData';
+import heroBgImage from '../assets/images/giad_hero_clear_1788678606374.jpg';
 
 interface HeroProps {
   onExploreSectors: () => void;
@@ -22,13 +23,14 @@ export const Hero: React.FC<HeroProps> = ({ onExploreSectors, onAboutGiad }) => 
         className="absolute inset-0 z-0"
       >
         <img
-          src="https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=2200&q=85"
-          alt="خطوط الإنتاج والتصنيع الهندسي في مجموعة جياد"
-          className="w-full h-full object-cover object-center opacity-20 sm:opacity-25"
+          src={heroBgImage}
+          alt="مجمع مصانع وخطوط التصنيع الهندسي في مجموعة جياد الصناعية"
+          referrerPolicy="no-referrer"
+          className="w-full h-full object-cover object-center brightness-95 contrast-105"
         />
-        {/* Soft Light Gradients for optimal readability */}
-        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/85 to-white/60" />
-        <div className="absolute inset-0 bg-gradient-to-r from-white via-white/85 to-transparent" />
+        {/* Directional gradient protecting text readability on right while keeping image clear and vivid on center/left */}
+        <div className="absolute inset-0 bg-gradient-to-l from-white/95 via-white/80 to-white/20 sm:to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-white via-white/40 to-transparent" />
       </motion.div>
 
       {/* Main Hero Content */}

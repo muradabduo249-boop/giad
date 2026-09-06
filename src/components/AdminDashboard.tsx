@@ -974,7 +974,7 @@ export const AdminDashboard: React.FC<AdminDashboardProps> = ({
                               excerptAr: '',
                               contentAr: '',
                               image:
-                                'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80',
+                                'https://images.unsplash.com/photo-1581091226825-a6a2a5aee158?auto=format&fit=crop&w=900&q=80',
                               readTimeAr: '3 دقائق قراءة',
                               featured: false,
                             });

@@ -51,6 +51,7 @@ export const CompaniesSection: React.FC<CompaniesSectionProps> = ({ onSelectComp
                   <img
                     src={company.image}
                     alt={company.nameAr}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F36]/80 via-transparent to-transparent" />

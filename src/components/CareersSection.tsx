@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Briefcase, ArrowLeft, CheckCircle, MapPin, Clock, Users } from 'lucide-react';
 import { JOB_OPENINGS } from '../data/giadData';
 import { JobOpening } from '../types';
+import giadEngineersImage from '../assets/images/giad_engineers_team_1788691480452.jpg';
 
 interface CareersSectionProps {
   onApplyJob: (job: JobOpening) => void;
@@ -53,9 +54,10 @@ export const CareersSection: React.FC<CareersSectionProps> = ({ onApplyJob, cust
             {/* Image Column */}
             <div className="lg:col-span-5 relative h-56 sm:h-80 lg:h-[480px]">
               <img
-                src="https://images.unsplash.com/photo-1581092335397-9583fe92d232?auto=format&fit=crop&w=1200&q=80"
+                src={giadEngineersImage}
                 alt="فريق المهندسين والفنيين في مجموعة جياد"
                 className="w-full h-full object-cover"
+                referrerPolicy="no-referrer"
               />
               <div className="absolute inset-0 bg-gradient-to-t lg:bg-gradient-to-r from-[#0A1F36]/80 via-transparent to-transparent" />
 

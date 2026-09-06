@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
-import { MapPin, Phone, Mail, Send, CheckCircle2, Building, Navigation, Loader2 } from 'lucide-react';
+import { MapPin, Phone, Mail, Send, CheckCircle2, Building, Navigation, Loader2, ArrowDown } from 'lucide-react';
 import { GIAD_INFO } from '../data/giadData';
 import { SiteSettings, submitContactMessage } from '../lib/firestoreService';
+import { GiadInteractiveMap } from './GiadInteractiveMap';
 
 interface ContactSectionProps {
   initialSubject?: string;
@@ -128,26 +129,25 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialSubject =
               </div>
             </div>
 
-            {/* Stylized Clean Map Container */}
-            <div className="rounded-2xl overflow-hidden border border-slate-200 bg-[#F8FAFC] p-5 sm:p-6 text-[#0A1F36] space-y-2.5">
+            {/* Quick Map Directions Card */}
+            <div className="rounded-2xl border border-slate-200 bg-[#F8FAFC] p-5 text-[#0A1F36] space-y-2.5">
               <div className="flex items-center justify-between">
                 <span className="text-xs font-bold text-[#0084CA] flex items-center gap-1.5">
                   <Navigation className="w-4 h-4" />
-                  <span>الموقع الجغرافي</span>
+                  <span>الموقع الجغرافي للمقر الرئيسي</span>
                 </span>
-                <span className="text-[11px] text-slate-500 font-mono">15°31'N 32°33'E</span>
+                <span className="text-[11px] text-slate-500 font-mono">15°34'N 32°33'E</span>
               </div>
               <p className="text-xs sm:text-sm text-slate-600 leading-relaxed">
-                برج جياد الإداري — شارع مدني السريع، الجريف غرب. متصل بطرق الشريان القومي المؤدية لمطار الخرطوم والولايات الإنتاجية.
+                برج جياد الإداري — شارع مدني السريع، الجريف غرب. يربط بين مطار الخرطوم والولايات الإنتاجية ومجمع المصانع.
               </p>
-              <div className="pt-2">
+              <div className="pt-2 flex items-center gap-3">
                 <a
-                  href="https://maps.google.com"
-                  target="_blank"
-                  rel="noreferrer"
-                  className="inline-flex items-center gap-1.5 text-xs font-bold text-[#004B87] hover:text-[#0084CA] transition"
+                  href="#giad-interactive-map-container"
+                  className="inline-flex items-center gap-1 text-xs font-bold text-[#004B87] hover:text-[#0084CA] transition"
                 >
-                  <span>عرض الاتجاهات في خرائط Google</span>
+                  <span>استكشاف الخريطة التفاعلية أدناه</span>
+                  <ArrowDown className="w-3.5 h-3.5" />
                 </a>
               </div>
             </div>
@@ -276,6 +276,11 @@ export const ContactSection: React.FC<ContactSectionProps> = ({ initialSubject =
               </form>
             )}
           </div>
+        </div>
+
+        {/* Dedicated Interactive Google Maps Section */}
+        <div className="mt-12 sm:mt-16 pt-8 border-t border-slate-200">
+          <GiadInteractiveMap />
         </div>
       </div>
     </section>

@@ -121,6 +121,7 @@ export const ProductsSection: React.FC<ProductsSectionProps> = ({
                   <img
                     src={product.image}
                     alt={product.nameAr}
+                    referrerPolicy="no-referrer"
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
                   <div className="absolute top-3 right-3">

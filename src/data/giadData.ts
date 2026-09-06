@@ -1,4 +1,8 @@
 import { Sector, Company, Product, NewsItem, TimelineMilestone, JobOpening } from '../types';
+import giadTractorImage from '../assets/images/giad_agricultural_tractor_1788677729840.jpg';
+import giadMetalFormingImage from '../assets/images/giad_metal_forming_1788678575074.jpg';
+import giadMaintenanceImage from '../assets/images/giad_maintenance_service_1788678588195.jpg';
+import giadTrucksImage from '../assets/images/giad_heavy_trucks_1788691467935.jpg';
 
 export const GIAD_INFO = {
   nameAr: 'مجموعة جياد للصناعات الهندسية',
@@ -68,7 +72,7 @@ export const SECTORS: Sector[] = [
       'برامج تدريبية لتأهيل الفنيين وسائقي المعدات الزراعية',
     ],
     keyProducts: ['جرارات زراعية فئة 75-85 حصان', 'محاريث قرصية ومقطورات زراعية', 'معدات رش ومكافحة الآفات', 'أنظمة ري متكاملة'],
-    image: 'https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=1200&q=80',
+    image: giadTractorImage,
     badgeAr: 'إسناد الأمن الغذائي',
   },
   {
@@ -102,7 +106,7 @@ export const SECTORS: Sector[] = [
       'تصنيع الصوامع، الخزانات الصناعية، والهياكل المعدنية للمصانع',
     ],
     keyProducts: ['هياكل حديدية جمالونية للمصانع', 'أنابيب فولاذية ملحومة طولياً وحلزونياً', 'سبائك حديد وزهر للمضخات والمحركات', 'حواجز الطرق واللوحات الإرشادية المعدنية'],
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=1200&q=80',
+    image: giadMetalFormingImage,
     badgeAr: 'القوة الهندسية الثقيلة',
   },
   {
@@ -119,7 +123,7 @@ export const SECTORS: Sector[] = [
       'عقود صيانة شاملة للأساطيل الحكومية والشركات الخاصة والمنظمات',
     ],
     keyProducts: ['باقات الصيانة الدورية المعتمدة', 'قطع الغيار والملحقات الأصلية', 'برامج إدارة وصيانة الأساطيل', 'خدمات الإنقاذ والمساندة على الطرق'],
-    image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=1200&q=80',
+    image: giadMaintenanceImage,
     badgeAr: 'الاعتمادية والخدمة',
   },
 ];
@@ -150,7 +154,7 @@ export const COMPANIES: Company[] = [
     locationAr: 'مدينة جياد الصناعية',
     keyProjects: ['توريد شاحنات النقل الثقيل لمشاريع البنية التحتية', 'تصنيع صهاريج نقل المحروقات والمياه لمناطق التعدين', 'حافلات النقل الجماعي للولايات'],
     websiteUrl: 'https://giadengineering.com',
-    image: 'https://images.unsplash.com/photo-1586191582150-7ec14995f3b7?auto=format&fit=crop&w=800&q=80',
+    image: giadTrucksImage,
     logoText: 'GIAD TRUCKS',
   },
   {
@@ -164,7 +168,7 @@ export const COMPANIES: Company[] = [
     locationAr: 'مدينة جياد الصناعية',
     keyProjects: ['مشروع ميكنة المشاريع الزراعية الكبرى بالجزيرة والقضارف', 'تصنيع محاريث ومقطورات زراعية وطنية الصنع', 'تأهيل الورش الزراعية المتنقلة'],
     websiteUrl: 'https://giadengineering.com',
-    image: 'https://images.unsplash.com/photo-1530267981375-f0de937f5f13?auto=format&fit=crop&w=800&q=80',
+    image: giadTractorImage,
     logoText: 'GIAD TRACTOR',
   },
   {
@@ -192,7 +196,7 @@ export const COMPANIES: Company[] = [
     locationAr: 'مدينة جياد الصناعية',
     keyProjects: ['تنفيذ الهياكل المعدنية للمجمعات الصناعية وصوامع الغلال', 'تصنيع حواجز الأمان وعلامات الطرق المرورية السريعة', 'إنتاج قطع الغيار الميكانيكية بالهندسة العكسية'],
     websiteUrl: 'https://giadengineering.com',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=800&q=80',
+    image: giadMetalFormingImage,
     logoText: 'METAL FORMING',
   },
   {
@@ -206,7 +210,7 @@ export const COMPANIES: Company[] = [
     locationAr: 'الخرطوم / مدينة جياد الصناعية',
     keyProjects: ['إدارة عقود صيانة الأساطيل للمؤسسات الحكومية والمنظمات', 'تطوير تطبيق حجز الصيانة وخدمة المساعدة على الطريق', 'تأهيل مراكز خدمة الفحص الدوري السريع'],
     websiteUrl: 'https://giadengineering.com',
-    image: 'https://images.unsplash.com/photo-1486006920555-c77dce18193b?auto=format&fit=crop&w=800&q=80',
+    image: giadMaintenanceImage,
     logoText: 'MOTOR SERVICES',
   },
 ];
@@ -219,7 +223,7 @@ export const PRODUCTS: Product[] = [
     category: 'agricultural',
     categoryAr: 'الجرارات والمعدات الزراعية',
     shortDescriptionAr: 'جرار زراعي متعدد المهام بقوة 85 حصاناً مصمم لتحمل العمل الشاق في التربة الطينية والمشاريع المروية الكبرى.',
-    image: 'https://images.unsplash.com/photo-1592878904946-b3cd8ae243d0?auto=format&fit=crop&w=900&q=80',
+    image: giadTractorImage,
     specs: [
       { labelAr: 'قوة المحرك', valueAr: '85 حصان (ديزل توربو 4 سلندر)' },
       { labelAr: 'نظام الدفع', valueAr: 'رباعي 4WD مع قفل تفاضلي' },
@@ -330,7 +334,7 @@ export const PRODUCTS: Product[] = [
     category: 'metal',
     categoryAr: 'تشكيل وتشغيل المعادن والمسابك',
     shortDescriptionAr: 'هياكل فولاذية عالية القوة تُصمم وتُصنع هندسياً لتغطية الصالات الصناعية، المخازن، وصوامع التخزين بأطوال بحور واسعة.',
-    image: 'https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&w=900&q=80',
+    image: giadMetalFormingImage,
     specs: [
       { labelAr: 'نوع الفولاذ', valueAr: 'فولاذ إنشائي عالي الشد ASTM A36 / S355' },
       { labelAr: 'عرض البحر الصافي', valueAr: 'حتى 60 متراً بدون أعمدة وسيطة' },

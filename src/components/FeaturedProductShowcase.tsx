@@ -32,6 +32,7 @@ export const FeaturedProductShowcase: React.FC<FeaturedProductShowcaseProps> = (
               <img
                 src={featuredProduct.image}
                 alt={featuredProduct.nameAr}
+                referrerPolicy="no-referrer"
                 className="w-full h-[320px] sm:h-[450px] md:h-[500px] object-cover transition-transform duration-700 group-hover:scale-105"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-[#0A1F36]/80 via-transparent to-transparent" />

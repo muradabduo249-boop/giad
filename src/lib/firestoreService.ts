@@ -55,8 +55,12 @@ export const DEFAULT_SITE_SETTINGS: SiteSettings = {
   statYear: '1993',
 };
 
-// Seed initial collections if empty
+// Seed initial collections if empty - run only once per session to avoid backend connection races
+let hasCheckedSeed = false;
 export async function seedInitialDataIfEmpty() {
+  if (hasCheckedSeed) return;
+  hasCheckedSeed = true;
+
   try {
     // 1. Products
     const productsSnap = await getDocs(collection(db, 'products'));
@@ -94,63 +98,9 @@ export async function seedInitialDataIfEmpty() {
     // 4. Site Settings
     const settingsDoc = doc(db, 'site_settings', 'general');
     await setDoc(settingsDoc, DEFAULT_SITE_SETTINGS, { merge: true });
-
-    // 5. Initial Seed for Quotation Requests if empty
-    const quotesSnap = await getDocs(collection(db, 'quotation_requests'));
-    if (quotesSnap.empty) {
-      const sampleQuote: QuotationRequest = {
-        id: `quote-seed-1`,
-        productName: 'جرار جياد ماسي فيرجسون 290',
-        productId: 'prod-tractor-mf290',
-        clientName: 'م. إبراهيم كمال الدسوقي',
-        companyName: 'مشروع الجزيرة الزراعي - قسم الميكنة',
-        phone: '+249 912 345678',
-        email: 'i.desouqi@aljaziraproject.sd',
-        quantity: '5 وحدات مع الملحقات الحقلية',
-        notes: 'نرجو تزويدنا بعرض سعر رسمي مع جدول الصيانة وشروط السداد المعتمدة للمشاريع التنموية.',
-        status: 'pending',
-        createdAt: new Date(Date.now() - 3600000 * 4).toISOString(),
-        adminNotes: 'طلب هام يحتاج مراجعة إدارة التسويق الزراعي',
-      };
-      await setDoc(doc(db, 'quotation_requests', sampleQuote.id), sampleQuote);
-    }
-
-    // 6. Initial Seed for Contact Inquiries if empty
-    const contactSnap = await getDocs(collection(db, 'contact_messages'));
-    if (contactSnap.empty) {
-      const sampleMsg: ContactMessage = {
-        id: `msg-seed-1`,
-        name: 'د. طارق الفاتح',
-        email: 'tariq.fateh@consulting-eng.com',
-        phone: '+249 923 889900',
-        subject: 'استفسار عن توريد كابلات الجهد المتوسط لمشروع مجمع تجاري',
-        message: 'السلام عليكم ورحمة الله، نود الاستفسار عن توفر كابلات نحاسية معزولة جهد 11 ك.ف وفق مواصفات هيئة الكهرباء والكميات المتاحة للتسليم الفوري.',
-        status: 'unread',
-        createdAt: new Date(Date.now() - 3600000 * 2).toISOString(),
-      };
-      await setDoc(doc(db, 'contact_messages', sampleMsg.id), sampleMsg);
-    }
-
-    // 7. Initial Seed for Job Applications if empty
-    const appsSnap = await getDocs(collection(db, 'job_applications'));
-    if (appsSnap.empty) {
-      const sampleApp: JobApplication = {
-        id: `app-seed-1`,
-        jobId: 'job-1',
-        jobTitle: 'مهندس جودة ومطابقة صناعية',
-        fullName: 'عمر صديق عبد الرحمن',
-        email: 'omar.siddiq@gmail.com',
-        phone: '+249 900 112233',
-        qualification: 'بكالوريوس هندسة ميكانيكية - جامعة الخرطوم (مرتبة الشرف)',
-        yearsExp: '4 سنوات في مراقبة الجودة وضبط المعايير ISO',
-        coverNote: 'أتقدم لشغل هذه الوظيفة إيماناً بالدور الوطني الرائد لمجموعة جياد، ولدي خبرة متقدمة في فحوصات الجودة والمعايرة والتحكم الإحصائي في العمليات.',
-        status: 'new',
-        createdAt: new Date(Date.now() - 3600000 * 8).toISOString(),
-      };
-      await setDoc(doc(db, 'job_applications', sampleApp.id), sampleApp);
-    }
   } catch (err) {
-    console.warn('Firebase seeding or initial sync notice:', err);
+    // Graceful silent fallback if offline or backend is synchronizing
+    console.debug('Firebase seeding note:', err);
   }
 }
 
@@ -178,7 +128,7 @@ export function subscribeProducts(
       onUpdate(list);
     },
     (err) => {
-      console.error('Products listener error, falling back to local:', err);
+      console.warn('Products listener notice, using current data:', err);
       onUpdate(PRODUCTS);
       if (onError) onError(err);
     }
@@ -205,7 +155,7 @@ export function subscribeNews(
       onUpdate(list);
     },
     (err) => {
-      console.error('News listener error, falling back to local:', err);
+      console.warn('News listener notice, using current data:', err);
       onUpdate(NEWS_ITEMS);
       if (onError) onError(err);
     }
@@ -232,7 +182,7 @@ export function subscribeJobs(
       onUpdate(list);
     },
     (err) => {
-      console.error('Jobs listener error, falling back to local:', err);
+      console.warn('Jobs listener notice, using current data:', err);
       onUpdate(JOB_OPENINGS);
       if (onError) onError(err);
     }
@@ -255,7 +205,7 @@ export function subscribeSiteSettings(
       }
     },
     (err) => {
-      console.error('Settings listener error:', err);
+      console.warn('Settings listener notice:', err);
       onUpdate(DEFAULT_SITE_SETTINGS);
       if (onError) onError(err);
     }
@@ -280,7 +230,7 @@ export function subscribeQuotationRequests(
       onUpdate(list);
     },
     (err) => {
-      console.error('Quotations listener error:', err);
+      console.warn('Quotations listener notice:', err);
       if (onError) onError(err);
     }
   );
@@ -303,7 +253,7 @@ export function subscribeContactMessages(
       onUpdate(list);
     },
     (err) => {
-      console.error('Contact messages listener error:', err);
+      console.warn('Contact messages listener notice:', err);
       if (onError) onError(err);
     }
   );
@@ -326,7 +276,7 @@ export function subscribeJobApplications(
       onUpdate(list);
     },
     (err) => {
-      console.error('Job applications listener error:', err);
+      console.warn('Job applications listener notice:', err);
       if (onError) onError(err);
     }
   );
